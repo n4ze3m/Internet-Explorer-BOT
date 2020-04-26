@@ -225,3 +225,48 @@ while True:
 	        tweet_this_news(sent)
 	except:
 	    print('err')
+
+	#101greatgoals
+	try:
+	    newz = []
+	    links = []
+	    url_index = randint(1802,3502)
+	    url ='https://www.101greatgoals.com/news/page/{}/'.format(url_index)
+	    source = requests.get(url ,headers=header).text
+	    soup = BeautifulSoup(source,'lxml')
+	    find_container = soup.find('div',class_="row category-posts")
+	    for news in find_container.find_all('div',class_='col-md-4 category-post'):
+	        find_a = news.find('a',href=True)
+	        find_p = news.find('p')
+	        newz.append(find_p.text)
+	        links.append(find_a['href'])
+	    length_of_newz = len(newz)-1
+	    index = randint(0,length_of_newz)
+	    tweet_url = urlShortener(links[index])
+	    sent = "📰 |{} \n {}".format(newz[index],tweet_url)
+	    tweet_this_news(sent)
+	except:
+	    print('err')
+	#soccernews
+	try:
+	    newz = []
+	    links = []
+	    url_index = randint(220,370)
+	    url = 'https://www.soccernews.com/category/general-soccer-news/page/{}/'.format(url_index)
+	    source = requests.get(url ,headers=header).text
+	    soup = BeautifulSoup(source,'lxml')
+	    find_container = soup.find('div',class_='main-container')
+	    find_blackList = find_container.findAll('div',class_='top-videos-container transfers black')
+	    find_blackList = find_blackList[1]
+	    find_headline = find_blackList.find('div',class_='latest-news-list headline')
+	    for news in find_headline.findAll('li'):
+	        find_a = news.find('a',href=True)
+	        newz.append(find_a.text)
+	        links.append(find_a['href'])
+	    length_of_newz = len(newz)-1
+	    index = randint(0,length_of_newz)
+	    tweet_url = urlShortener(links[index])
+	    sent = "📰 | {} \n\n {}".format(newz[index],tweet_url)
+	    tweet_this_news(sent)
+	except:
+	    print('error')
