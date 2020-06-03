@@ -6,10 +6,10 @@ import tweepy
 
 header ={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36'}
 
-API_KEY = 'MqLnjy2IPkyGt0MwsGuUTjNLI'
-API_SECRET = 'zh2FEz54xsBQqtMfWJzGa79RPyclCaa8jUiARbEDdONqHoGzyc'
-ACCESS_TOKEN = '1182714365381894144-b9VcV3ilO3ISpUeramAb4l0bWKXnQK'
-ACCESS_TOKEN_SECRET ='42n5JmQcRWARm8Gjzpx3Z3kxvz0ihGLXFk6rMY0ws8Euf'
+API_KEY = ''
+API_SECRET = ''
+ACCESS_TOKEN = ''
+ACCESS_TOKEN_SECRET =''
 auth = tweepy.OAuthHandler(API_KEY, API_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 api = tweepy.API(auth, wait_on_rate_limit=True,wait_on_rate_limit_notify=True)
